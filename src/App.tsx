@@ -1,24 +1,24 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import RestaurantPage from "./pages/RestaurantPage";
-import CartPage from "./pages/CartPage";
-import Header from "./components/Header";
-import "./App.css";
+import Restaurants from "./pages/Restaurants";
+import RestaurantMenu from "./pages/RestaurantMenu";
+import Cart from "./pages/Cart";
+import AdminDashboard from "./pages/AdminDashboard";
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div className="app">
-      <Header />
-      <main className="container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/restaurant/:id" element={<RestaurantPage />} />
-          <Route path="/cart" element={<CartPage />} />
-        </Routes>
-      </main>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/restaurants" element={<Restaurants />} />
+        <Route path="/restaurant/:id" element={<RestaurantMenu />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+      </Routes>
+    </>
   );
-};
+}
 
 export default App;
